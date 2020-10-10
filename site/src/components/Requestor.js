@@ -29,7 +29,7 @@ export function sign_in(login, password){
                     password: password
                 };
 
-    const token_url = 'https://ar2emis.pythonanywhere.com/api/token'
+const token_url = 'https://believerfenix.pythonanywhere.com/api/token'
 
     return send_request(token_url, 'POST', user_data)
     .then(data => data.token)
@@ -42,8 +42,8 @@ export function sign_up(login, password){
         password: password
     };
 
-    const users_url = 'https://ar2emis.pythonanywhere.com/api/users/'
-    const authorization_token = '3495279158f81e3feb765294d608fb16391a8ab8'
+    const users_url = 'https://believerfenix.pythonanywhere.com/api/users/'
+    const authorization_token = '04eb8ca4afcb1750b4be7cecbf6095dfbcceab54'
 
     return send_request(users_url, 'POST', user_data, {'Authorization': 'Token ' + authorization_token})
     .catch(error => {throw Error('User with this username already exists!')});
@@ -67,7 +67,7 @@ export function change_task_status(task_url, status, user_token){
 }
 
 export function get_projects(user_token){
-    const projects_url = 'https://ar2emis.pythonanywhere.com/api/projects/'
+    const projects_url = 'https://believerfenix.pythonanywhere.com/api/projects/'
     const header = {'Authorization': 'Token ' + user_token}
 
     return send_request(projects_url, 'GET', null, header)
@@ -75,7 +75,7 @@ export function get_projects(user_token){
 }
 
 export function post_project(user_token, project){
-    const projects_url = 'https://ar2emis.pythonanywhere.com/api/projects/'
+    const projects_url = 'https://believerfenix.pythonanywhere.com/api/projects/'
     const header = {'Authorization': 'Token ' + user_token}
 
     return send_request(projects_url, 'POST', project, header)
